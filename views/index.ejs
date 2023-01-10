@@ -1,0 +1,19 @@
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+<body>
+  <%- include("./partials/nav.ejs") %>
+
+  <div class="SearchDiv">
+    <form class="SearchBar">
+      <label for="title">Search for samer</label><br>
+      <input type="text" placeholder="Search here">
+    </form>
+  </div>
+  <div class="output">
+    <%- include("./partials/cardInfo.ejs") %>
+  </div>
+
+
+  <%- include("./partials/footer.ejs") %>
+</body>
+</html>
