@@ -1,6 +1,12 @@
-import { initializeApp } from "firebase/app";
 import {
-    collection, getDocs, query, where, getFirestore,
+    initializeApp
+} from "firebase/app";
+import {
+    collection,
+    getDocs,
+    query,
+    where,
+    getFirestore,
 } from 'firebase/firestore';
 
 
@@ -28,7 +34,7 @@ const output = document.querySelector('.output');
 
 output.innerHTML = "";
 
-search.addEventListener('submit', function(e) {
+search.addEventListener('submit', function (e) {
     output.innerHTML = "";
     e.preventDefault();
     let reinSearch = e.target.input.value;
@@ -66,16 +72,18 @@ function searchEngineReindyr(searchResult) {
                 </div>
             </div>
             `;
-            });
-        })};
+        });
+    })
+};
+
 function searchEngineFlokk(searchResult) {
     console.log("shit run");
     flokkDoc.forEach(async dots => {
         const q = query(colRefFlokk, where(dots, "==", searchResult));
         const querySnapshot = await getDocs(q);
-            querySnapshot.forEach((doc) => {
-                console.log(doc.id, " => ", doc.data());
-                output.innerHTML += `
+        querySnapshot.forEach((doc) => {
+            console.log(doc.id, " => ", doc.data());
+            output.innerHTML += `
                 <div id="card">
                     <div class="imgHolder">
                         <img src="${doc.data().img}" alt="placeholder">
@@ -92,16 +100,18 @@ function searchEngineFlokk(searchResult) {
                     </div>
                 </div>
                 `;
-                });
-})};
+        });
+    })
+};
+
 function searchEngineEiere(searchResult) {
     console.log("shit run");
     eierDoc.forEach(async dots => {
         const q = query(colRefEier, where(dots, "==", searchResult));
         const querySnapshot = await getDocs(q);
-            querySnapshot.forEach((doc) => {
-                console.log(doc.id, " => ", doc.data());
-                output.innerHTML += `
+        querySnapshot.forEach((doc) => {
+            console.log(doc.id, " => ", doc.data());
+            output.innerHTML += `
                 <div id="card">
                     <div class="title">
                         <h1>Eier</h1>
@@ -116,64 +126,6 @@ function searchEngineEiere(searchResult) {
                     </div>
                 </div>
                 `;
-                });
-})};
-// async function DBsearch(input) {
-//     output.innerHTML = "";
-//     for (let i = 0; i < reinDoc.length; i++) {
-//         const q = query(reinDB, where(reinDoc[i], '==', input));
-//         const searchQ = await getDocs(q);
-//         searchQ.forEach((doc) => {
-//             output.innerHTML += `
-//             <div class="searchRes">
-//             <h4>${doc.data().navn}</h4>
-//             <p>Født: ${doc.data().fødselsdato}</p>
-//             <p id="${doc.data().flokk}">Flokk: ${doc.data().flokk}</p>
-//             <p>Serienummer: ${doc.data().serienummer}</p>
-//             <div>
-//             `
-//         });
-//     };
-//     for (let i = 0; i < flokkDoc.length; i++) {
-//         const q = query(flokkDB, where(flokkDoc[i], '==', input));
-//         const searchQ = await getDocs(q);
-//         searchQ.forEach((doc) => {
-//             output.innerHTML += `
-//             <div class="searchRes">
-//             <h4>${doc.data().flokknavn}</h4>
-//             <p id="${doc.data().eier}">Eier: ${doc.data().eier}</p>
-//             <p>Serieinndeling: ${doc.data().serieinndeling}</p>
-//             <p>Beiteområde: ${doc.data().beiteområde}</p>
-//             <p>Buemerke: ${doc.data().buemerke}</p>
-//             <a class="serienummer" href="${doc.data().buemerkeURL}">buemerke bilde</a>
-//             <div>
-//             `
-//         });
-//     };
-//     for (let i = 0; i < eierDoc.length; i++) {
-//         const q = query(eierDB, where(eierDoc[i], '==', input));
-//         const searchQ = await getDocs(q);
-//         searchQ.forEach((doc) => {
-//             output.innerHTML += `
-//             <div class="searchRes">
-//             <h4>${doc.data().navn}</h4>
-//             <p>Personnummer: ${doc.data().personnummer}</p>
-//             <p>Kontaktspråk: ${doc.data().Kontaktspråk}</p>
-//             <p>Telefonnummer: ${doc.data().Telefonnummer}</p>
-//             <div>
-//             `
-//         });
-//     };
-//     for (let i = 0; i < beiteDoc.length; i++) {
-//         const q = query(beiteDB, where(beiteDoc[i], '==', input));
-//         const searchQ = await getDocs(q);
-//         searchQ.forEach((doc) => {
-//             output.innerHTML += `
-//             <div class="searchRes">
-//             <h4>${doc.data().område}</h4>
-//             <p>Fylke: ${doc.data().Fylke}</p>
-//             <div>
-//             `
-//         });
-//     };
-// };
+        });
+    })
+};
