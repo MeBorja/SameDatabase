@@ -1,5 +1,5 @@
 const express = require('express');
-
+// const AllData = require('./src/database')
 // express app
 const app = express();
 
@@ -26,8 +26,6 @@ const port = 3000;
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}`);
 });
-
-
 
 
 // 404 page

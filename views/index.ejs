@@ -1,12 +1,14 @@
 <html lang="en">
   <%- include("./partials/head.ejs") %>
 <body>
-  <%- include("./partials/nav.ejs") %>
 
-  <div class="SearchDiv">
-    <form class="SearchBar">
-      <label for="title">Search for samer</label><br>
-      <input type="text" placeholder="Search here">
+
+
+  <%- include("./partials/nav.ejs") %>
+  <div id="searchbar">
+    <form id="block">
+        <input id="input" type="text" placeholder="Search here">
+        <button id="srcBtn" type="button"><img id="search" src="./img/172546_search_icon.png" alt="Search"></button>
     </form>
   </div>
   <div class="output">
@@ -15,5 +17,11 @@
 
 
   <%- include("./partials/footer.ejs") %>
+  <script>
+
+
+
+
+  </script>
 </body>
 </html>

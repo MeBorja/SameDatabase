@@ -8,3 +8,56 @@
     <% } else { %>
       <p>There are no blogs to display...</p>
     <% } %>
+
+    
+<% getDocs(colRefEier)%>
+<%     .then((snapshot) => { %>
+<%         let eiere = [] %>
+<%       snapshot.docs.forEach((doc) => { %>
+<%             eiere.push({ ...doc.data(), id: doc.id}) %>
+<%        }) %>
+<%       console.log(eiere) %>
+<%      console.log("Shit Works 1") %>
+<% if (eiere.length > 0) { %>
+    <% eiere.forEach(tit => { %>
+        <div class="card">
+            <div class="imgHolder">
+                <img src="https://via.placeholder.com/150" alt="placeholder">
+            </div>
+            <div class="title">
+                <h1><% eiere.navn %></h1>
+            </div>
+            <div class="sameInfo">
+                <p>Klikk her for mer info</p>
+            </div>
+        </div>
+    <% }) %>
+  <% } else { %>
+    <p>There are no blogs to display...</p>
+  <% } %>
+<%  }).catch(err => { %>
+<%      console.log(err);%> 
+<%   }) %>
+
+
+
+
+
+
+<% if (eiere.length > 0) { %>
+    <% eiere.forEach(tit => { %>
+        <div class="card">
+            <div class="imgHolder">
+                <img src="https://via.placeholder.com/150" alt="placeholder">
+            </div>
+            <div class="title">
+                <h1><% eiere.navn %></h1>
+            </div>
+            <div class="sameInfo">
+                <p>Klikk her for mer info</p>
+            </div>
+        </div>
+    <% }) %>
+  <% } else { %>
+    <p>There are no blogs to display...</p>
+  <% } %>
